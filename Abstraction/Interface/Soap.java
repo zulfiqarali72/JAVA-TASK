@@ -1,0 +1,3 @@
+interface Soap{
+void bath();
+}
