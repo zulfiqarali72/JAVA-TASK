@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Fractions{
+class Fractions{
 	
 	
 public static void main(String arg[]) {
