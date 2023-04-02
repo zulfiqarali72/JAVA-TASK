@@ -10,6 +10,9 @@ for(int i=1;i<=p;i++) {
 }
 return s;
 }
+public int functionpower(int n) {
+return n*n;
+}
 public static  void main(String arg[]) {
 Function obj= new Function();
 Scanner sc=new Scanner(System.in);
@@ -22,5 +25,6 @@ System.out.println("Enter th p");
 		 
  System.out.println(obj.functionpower(n,p));
 System.out.println(obj.functionpower(n,p));
+System.out.println(obj.functionpower(n));
 }
 }
