@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
 
+
 public class  Crudappliction {
 	
 	Scanner sc=new Scanner(System.in);
 	List<Student0> students=new ArrayList<>();
+	boolean Found = false;
 	public void Add() {
 		System.out.println("Enter the Student ID:");
 	int id=sc.nextInt();
@@ -50,8 +52,10 @@ public class  Crudappliction {
 	        s.setAge(age1);
 	        s.setRollNumber(rollNumber1);
 	        s.setEmail(email1);
+	        Found = true;
 	        System.out.println("Student Detail updated");
-	return;}}
+	break;}
+	}
 	
 		System.out.println(" Student ID not Exit");
 	}
@@ -60,37 +64,44 @@ public class  Crudappliction {
 		System.out.println("Enter the Student ID:");
 	int delid=sc.nextInt();
 	Iterator<Student0> iterator=students.iterator();
-
+	
 	while(iterator.hasNext())
 	{Student0 s=iterator.next();
-	if(s.getId()==delid) {
+	if(s.getId()==delid){
 		iterator.remove();
+		Found = true;
 		System.out.println("Student ID Delete");
-	return;}
+	break;}
 	}
-		System.out.println(" Student ID not Exit");
+	 if (!Found) {
+         System.out.println("Student ID does not exist");
+     }
 	}
 	
 	public void getStudent() {	
 		System.out.println("Enter the Student ID:");
 	int retid=sc.nextInt();
 	for (Student0 s: students) {
-	if(s.getId()==retid) {
+	if(s.getId()==(retid)) {
 		System.out.println("Id"+s.getId()+"Name"+s.getName()+"age"+s.getAge()+"RollNumber"+s.getRollNumber()+"Email"+s.getEmail());
-		return;}
+		Found = true;
+        break;}
 	}
-		System.out.println(" Student ID not Exit");
+	
 	}
 	
 	public void  allStudent()
 	{Iterator<Student0>iterator=iterator=students.iterator();
-	while(iterator.hasNext())
+        if (students.isEmpty()) {
+            System.out.println("No students found");}
+        else {while(iterator.hasNext())
 	{Student0 s=iterator.next();
 	System.out.println("Id"+s.getId()+"Name"+s.getName()+"age"+s.getAge()+"RollNumber"+s.getRollNumber()+"Email"+s.getEmail());
-	return;}}
+	}}}
 	public void Exit()
 	{
-		System.out.println("Exit");}
+		
+		Found=false;}
 	
 	public static void main(String args[]) {
 		Scanner sc=new Scanner(System.in);
